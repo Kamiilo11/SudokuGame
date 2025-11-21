@@ -18,22 +18,26 @@
             <li>En cada fila ningun numero del 1 al 9 puede repetirse</li>
             <li>En cada columna ningun numero del 1 al 9 puede repetirse</li>
         </ul>
-    </section>
 
-    <section class="game-container">
-        <input type="number" id="input1">
-        <input type="number" id="input2">
-        <input type="number" id="input3">
-    </section>
+        <div class="container">
+        
+        <div class="game-controls">
+            <button id="new-game">New Game</button>
+            <button id="check-solution">Check Solution</button>
+            <button id="solve">Solve</button>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
 
-    <section class="results-container">
-        Errores: <span></span>
-        Errores: <span></span>
-        Errores: <span></span>
-    </section>
+        <div class="sudoku-container">
+            <table id="sudoku-board"></table>
+        </div>
 
-
-
+        <div class="status" id="status"></div>
+    </div>
 
     <script src="/main.js"></script>
 </body>

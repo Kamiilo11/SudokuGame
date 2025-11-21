@@ -1,10 +1,131 @@
 body {
-    font-family: "Delius", sans-serif;
-    background-color: #ebfaf8;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.game-controls {
+    margin: 20px 0;
+}
+
+button, select {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.sudoku-container {
+    display: inline-block;
+    margin: 20px 0;
+}
+
+#sudoku-board {
+    border-collapse: collapse;
+    border: 3px solid #000;
+    margin: 0 auto;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #999;
+    background-color: white;
+    padding: 0;
+    position: relative;
+}
+
+.cell input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    background: transparent;
+    outline: none;
+    padding: 0;
     margin: 0;
+    font-weight: normal;
+}
+
+/* Thicker right borders for every 3rd column (vertical 3x3 grids) */
+td:nth-child(3n) {
+    border-right: 3px solid #000;
+}
+
+/* Thicker bottom borders for every 3rd row (horizontal 3x3 grids) */
+tr:nth-child(3n) td {
+    border-bottom: 3px solid #000;
+}
+
+/* Remove the thicker border from the very edge to avoid double borders */
+#sudoku-board tr:first-child td {
+    border-top: 1px solid #999;
+}
+
+#sudoku-board tr td:first-child {
+    border-left: 1px solid #999;
+}
+
+#sudoku-board tr:nth-child(3n+1) td {
+    border-top: 1px solid #999;
+}
+
+#sudoku-board tr td:nth-child(3n+1) {
+    border-left: 1px solid #999;
+}
+
+/* Different styling for pre-filled cells */
+.fixed input {
+    background-color: #f8f8f8 !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+}
+
+/* Different styling for user input cells */
+.user-input {
+    background-color: #e6f3ff !important;
+    color: #0066cc !important;
+    font-weight: normal !important;
+}
+
+/* Error styling */
+.error {
+    background-color: #ffcccc !important;
+    color: #cc0000 !important;
+}
+
+.cell input:disabled {
+    background-color: #f8f8f8;
+    color: #000000;
+    font-weight: bold;
+    -webkit-text-fill-color: #000000;
+    opacity: 1;
+}
+
+.status {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    min-height: 24px;
 }
